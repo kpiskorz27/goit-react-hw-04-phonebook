@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ContactForm from './ContactForm';
 import ContactList from './ContactList';
 import Filter from './Filter';
+import '../styles/main.css';
 
 export const App = () => {
   const [contacts, setContacts] = useState([]);
@@ -22,7 +23,7 @@ export const App = () => {
     );
   };
 
-  const handleFilterChange = e => {
+  const changeFilter = e => {
     setFilter(e.target.value);
   };
 
@@ -33,11 +34,11 @@ export const App = () => {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div className="divForm">
       <h1>Phonebook</h1>
       <ContactForm onAddContact={addContact} />
       <h2>Contacts</h2>
-      <Filter value={filter} onChange={handleFilterChange} />
+      <Filter value={filter} onChange={changeFilter} />
       <ContactList
         contacts={getVisibleContacts()}
         onDeleteContact={deleteContact}
